@@ -8,13 +8,13 @@
 		<version>3.1.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.luv2code</groupId>
+	<groupId>com.example</groupId>
 	<artifactId>springcoredemo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>springcoredemo</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>20</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
