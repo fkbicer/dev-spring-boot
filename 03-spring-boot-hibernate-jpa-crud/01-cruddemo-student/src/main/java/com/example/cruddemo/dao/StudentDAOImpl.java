@@ -1,4 +1,5 @@
 package com.example.cruddemo.dao;
+import org.hibernate.mapping.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -6,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.example.cruddemo.entity.Student;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 
 @Repository
 public class StudentDAOImpl implements StudentDAO {
@@ -31,6 +33,16 @@ public class StudentDAOImpl implements StudentDAO {
     @Override
     public Student findById(Integer id) {
         return entityManager.find(Student.class, id);
+    }
+
+    @Override
+    public java.util.List<Student> findAll() {
+        
+        // create query
+        TypedQuery<Student> theQuery = entityManager.createQuery("FROM Student ORDER BY id DESC", Student.class);
+
+        // reutrn query results
+        return theQuery.getResultList();
     }
     
 }
