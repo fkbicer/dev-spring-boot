@@ -14,7 +14,7 @@
 
 <body>
 <div  class = "container"> 
-</div>
+
     
     <h3>Employee Directory</h3>
     <hr>
@@ -34,10 +34,14 @@
             <input type="text" th:field="*{email}"
                    class = "form-control mb-4 w-25" placeholder="Email">
 
-            <button type="submit" class="btn btn-info col-2">Save</button>
+            <button type="submit" class="btn btn-info col-2">Save </button>
 
-    
+        <hr>
+        
+
     </form>
+        <a th:href="@{/employees/list}"> Back to Employees List</a>
+    </div>
 
 </body>
 
