@@ -30,7 +30,7 @@ public class EmployeeController {
 		// add to the spring model
 		theModel.addAttribute("employees", theEmployees);
 
-		return "employees/list-employees";
+		return "list-employees";
 	}
 }
 
