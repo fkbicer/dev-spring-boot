@@ -34,9 +34,9 @@ public class CruddemoApplication {
 
 
 	private void deleteInstructorDetail(AppDAO appDAO) {
-		int theId=2;
-		System.out.println("Id:2 is deleting...");
-		appDAO.deleteInstructorById(theId);
+		int theId=4;
+		System.out.println("Id:4 is deleting...");
+		appDAO.deleteInstructorDetailById(4);
 		System.out.println("Done!");
 
 
