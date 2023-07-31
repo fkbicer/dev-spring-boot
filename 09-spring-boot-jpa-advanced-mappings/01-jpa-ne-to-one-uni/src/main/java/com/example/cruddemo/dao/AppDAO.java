@@ -5,5 +5,7 @@ import com.example.cruddemo.entity.Instructor;
 public interface AppDAO {
 
     void save(Instructor theInsturctor);
+
+    Instructor findInstructorById(int theId);
     
 }

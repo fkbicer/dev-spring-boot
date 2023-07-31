@@ -1,12 +1,14 @@
 package com.example.cruddemo.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.cruddemo.entity.Instructor;
 
 import jakarta.persistence.EntityManager;
 
+@Repository
 public class AppDAOImpl implements AppDAO {
 
     // define field for entity manager
@@ -27,6 +29,12 @@ public class AppDAOImpl implements AppDAO {
         
         entityManager.persist(theInsturctor);
 
+    }
+
+
+    @Override
+    public Instructor findInstructorById(int theId) {
+            return entityManager.find(Instructor.class, theId);
     }
     
 }
