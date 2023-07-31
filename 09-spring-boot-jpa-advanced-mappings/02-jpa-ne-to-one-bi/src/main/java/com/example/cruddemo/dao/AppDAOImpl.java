@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.cruddemo.entity.Instructor;
+import com.example.cruddemo.entity.InstructorDetail;
 
 import jakarta.persistence.EntityManager;
 
@@ -43,6 +44,12 @@ public class AppDAOImpl implements AppDAO {
     public void deleteInstructorById(int theId) {
         Instructor tempInstructor = entityManager.find(Instructor.class,theId);
         entityManager.remove(tempInstructor);
+    }
+
+
+    @Override
+    public InstructorDetail findInstructorDetailById(int theId) {
+     return entityManager.find(InstructorDetail.class, theId);
     }
     
 }
