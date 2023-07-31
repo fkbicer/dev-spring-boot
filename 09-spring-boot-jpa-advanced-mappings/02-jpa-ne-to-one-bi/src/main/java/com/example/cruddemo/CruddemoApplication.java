@@ -26,8 +26,20 @@ public class CruddemoApplication {
 
 			// deleteInstructor(appDAO);
 
-			findInstructorDetail(appDAO);
+			// findInstructorDetail(appDAO);
+
+			deleteInstructorDetail(appDAO);
 		};
+	}
+
+
+	private void deleteInstructorDetail(AppDAO appDAO) {
+		int theId=2;
+		System.out.println("Id:2 is deleting...");
+		appDAO.deleteInstructorById(theId);
+		System.out.println("Done!");
+
+
 	}
 
 
