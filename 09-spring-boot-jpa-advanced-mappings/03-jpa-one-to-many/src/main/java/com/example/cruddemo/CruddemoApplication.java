@@ -41,8 +41,25 @@ public class CruddemoApplication {
 
 			// findInstructorWithCoursesJoinFetch(appDAO);
 
-			updateInstructor(appDAO);
+			// updateInstructor(appDAO);
+
+			updateCourse(appDAO);
 		};
+	}
+
+
+	private void updateCourse(AppDAO appDAO) {
+		int theId = 10;
+
+		// find course first.
+		System.out.println("Finding courses id : " + theId);
+
+		Course tempCourse = appDAO.findCourseById(theId);
+
+		tempCourse.setTitle("Personal football trainer - semi-pro.");
+		appDAO.update(tempCourse);
+		System.out.println("Done!");
+
 	}
 
 
