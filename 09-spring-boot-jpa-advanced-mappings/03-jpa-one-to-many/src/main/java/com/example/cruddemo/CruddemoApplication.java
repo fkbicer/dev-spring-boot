@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import com.example.cruddemo.dao.AppDAO;
+import com.example.cruddemo.entity.Course;
 import com.example.cruddemo.entity.Instructor;
 import com.example.cruddemo.entity.InstructorDetail;
 
@@ -28,8 +29,49 @@ public class CruddemoApplication {
 
 			// findInstructorDetail(appDAO);
 
-			deleteInstructorDetail(appDAO);
+			// deleteInstructorDetail(appDAO);
+
+			createInstructorWithCourses(appDAO);
 		};
+	}
+
+
+	private void createInstructorWithCourses(AppDAO appDAO) {
+
+			// create the instructor
+
+		Instructor tempInstructor =
+					new Instructor("Furkan", 
+								"Maliki", 
+								"fqfwqf@blabla.com");
+
+		// create the instructor detail
+
+		InstructorDetail tempInstructorDetail =
+					new InstructorDetail("http://www.clacla.com/youtube",
+							 			"coding is my hobby");
+
+		
+		// associate the objects
+
+		tempInstructor.setInstructorDetail(tempInstructorDetail);
+
+		// create some courses
+		Course tempCourse1 = new Course("Air Guitar- The Ultimate Guide");
+		Course tempCourse2 = new Course("Pin Ball - Master Class");
+		Course tempCourse3 = new Course("Math");
+
+		// add courses to instructor
+		tempInstructor.add(tempCourse1);
+		tempInstructor.add(tempCourse2);
+		tempInstructor.add(tempCourse3);
+
+		// save the instructor.
+		System.out.println("Saving instructor: " + tempInstructor);
+		System.out.println("The courses : " + tempInstructor.getCourses());
+		appDAO.save(tempInstructor);
+		System.out.println("Done!");
+
 	}
 
 
