@@ -11,6 +11,7 @@ import com.example.cruddemo.dao.AppDAO;
 import com.example.cruddemo.entity.Course;
 import com.example.cruddemo.entity.Instructor;
 import com.example.cruddemo.entity.InstructorDetail;
+import com.example.cruddemo.entity.Review;
 
 @SpringBootApplication
 public class CruddemoApplication {
@@ -23,8 +24,31 @@ public class CruddemoApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(AppDAO appDAO) {
 		return runner -> {
-		
+			createCourseAndReveiws(appDAO);
 		};
+	}
+
+
+	private void createCourseAndReveiws(AppDAO appDAO) {
+
+		// create a course
+		Course tempCourse = new Course("Pacman - how to score one million");
+
+		// add some reviews
+		tempCourse.addReview(new Review("Greate course...loved it!"));
+		tempCourse.addReview(new Review("not bad, should be improve..!"));
+		tempCourse.addReview(new Review("Cool course, job well done!"));
+
+		// save the course
+
+		System.out.println("Saving the course...");
+		System.out.println(tempCourse);
+		System.out.println(tempCourse.getReviews());
+
+		appDAO.save(tempCourse);
+
+
+
 	}
 
 
