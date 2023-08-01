@@ -1,5 +1,7 @@
 package com.example.cruddemo;
 
+import java.util.List;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -33,8 +35,24 @@ public class CruddemoApplication {
 
 			// createInstructorWithCourses(appDAO);
 
-			findInstructorWithCourses(appDAO);
+			// findInstructorWithCourses(appDAO);
+
+			findCoursesForInstructor(appDAO);
 		};
+	}
+
+
+	private void findCoursesForInstructor(AppDAO appDAO) {
+		int theId=1;
+		System.out.println("Finding instructor id:" + theId);
+
+		Instructor tempInstructor = appDAO.findInstructorById(theId);
+		System.out.println("tempInstructor: " + tempInstructor);
+		List<Course> courses = appDAO.findCoursesByInstructorId(theId);
+
+		tempInstructor.setCourses(courses);
+
+		System.out.println("the associated courses: " + tempInstructor.getCourses());
 	}
 
 
