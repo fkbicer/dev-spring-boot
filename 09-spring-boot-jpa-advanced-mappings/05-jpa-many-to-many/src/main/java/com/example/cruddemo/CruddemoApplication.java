@@ -12,6 +12,7 @@ import com.example.cruddemo.entity.Course;
 import com.example.cruddemo.entity.Instructor;
 import com.example.cruddemo.entity.InstructorDetail;
 import com.example.cruddemo.entity.Review;
+import com.example.cruddemo.entity.Student;
 
 @SpringBootApplication
 public class CruddemoApplication {
@@ -24,8 +25,40 @@ public class CruddemoApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(AppDAO appDAO) {
 		return runner -> {
+
+			createCourseAndStudents(appDAO);
 		
 		};
+	}
+
+
+	private void createCourseAndStudents(AppDAO appDAO) {
+
+		// create courses
+
+		Course tempCourse = new Course("Matematik");
+
+		// create students
+
+		Student theStudent1 = new Student("furkan", "bicer","basda@asdad.co");
+		Student theStudent2 = new Student("gulco", "cet","gc@gmail.co");
+		
+		// add students to courses
+
+		tempCourse.addStudent(theStudent2);
+		tempCourse.addStudent(theStudent1);
+
+		// retrieve the data.
+
+		System.out.println("Course name : " + tempCourse.getTitle() + " and students " + tempCourse.getStudents());
+
+		appDAO.save(tempCourse);
+
+
+		System.out.println("Done!");
+
+
+
 	}
 
 
