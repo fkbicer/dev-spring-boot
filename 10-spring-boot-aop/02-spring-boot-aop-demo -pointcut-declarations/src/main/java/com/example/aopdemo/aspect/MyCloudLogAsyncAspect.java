@@ -7,11 +7,12 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-@Order(2)
-public class MyDemoLoggingAspect {
+@Order(1)
+public class MyCloudLogAsyncAspect {
 
     @Before("com.example.aopdemo.aspect.LuvAopExpressions.forDaoPackageNoGetterAndSetter()")
-    public void beforeAddAccountAdvice(){
-        System.out.println("\n========> Executing @Before advice on method.");
+    public void logToCloudAsync() {
+         System.out.println("\n========> logging to cloud System async.");
     }
+    
 }
