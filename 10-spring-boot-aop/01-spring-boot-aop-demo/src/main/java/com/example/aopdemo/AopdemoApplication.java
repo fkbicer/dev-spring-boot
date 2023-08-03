@@ -33,6 +33,7 @@ public class AopdemoApplication {
 
 		// call the membership business method
 		theMembershipDAO.addSillyMember();
+		theMembershipDAO.goToSleep();
 
 	}
 
