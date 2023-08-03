@@ -31,6 +31,13 @@ public class AopdemoApplication {
 		Account myAccount = new Account();
 		theAccountDAO.addAccount(myAccount,true);
 
+		// call the accountdao getter/setter methods.
+		theAccountDAO.setEmail("abab@bbbb.co");
+		theAccountDAO.setServiceCode("505");
+
+		String mail = theAccountDAO.getEmail();
+		String code = theAccountDAO.getServiceCode();
+
 		// call the membership business method
 		theMembershipDAO.addSillyMember();
 		theMembershipDAO.goToSleep();
